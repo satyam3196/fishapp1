@@ -5,7 +5,7 @@ const excelToJson = require('convert-excel-to-json');
 exports.handler = async (event, context) => {
     try {
         // Adjust the file path according to your project structure
-        const filePath ='data1.xlsx';
+        const filePath ='https://github.com/satyam3196/fishapp1/blob/d03e93e12d17e4bca40d4376a190dec4f04bc2fc/data1.xlsx';
         const result = excelToJson({
             source: readFileSync(filePath),
             header: {
