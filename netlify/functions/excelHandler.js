@@ -4,7 +4,9 @@ const XLSX = require('xlsx');
 exports.handler = async (event, context) => {
     try {
         // URL to the raw Excel file
-        const excelUrl =' https://github.com/satyam3196/fishapp1/blob/2bb6b03d15021920d37c6261f075db8c7dc4291c/data1.xlsx';
+        const excelUrl = 'https://raw.githubusercontent.com/satyam3196/fishapp1/2bb6b03d15021920d37c6261f075db8c7dc4291c/data1.xlsx';
+
+        //const excelUrl =' https://github.com/satyam3196/fishapp1/blob/2bb6b03d15021920d37c6261f075db8c7dc4291c/data1.xlsx';
 
         // Fetch the Excel file
         const response = await axios.get(excelUrl, {
