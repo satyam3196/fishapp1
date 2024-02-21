@@ -89,13 +89,13 @@ function App() {
         </div>
         <div className="content-section">
           <div className="detail-box-container">
-            <label>Description</label>
+            <label><b><u>Description</u></b></label>
             <div className="detail-box">
               <p>{articleDetails.description}</p>
             </div>
           </div>
           <div className="detail-box-container">
-            <label>Implications</label>
+            <label><b><u>Implications</u></b></label>
             <div className="detail-box">
               <p>{articleDetails.inference}</p>
             </div>
