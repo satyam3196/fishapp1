@@ -1,15 +1,29 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Make sure html and body cover full height */
+  width: 100%; /* Ensure they cover full width */
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
 .App {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch; /* Ensure content stretches to fill available space */
   text-align: center;
   font-family: 'Arial', sans-serif;
   background: linear-gradient(11deg, #0077be 5%, #ffffff 100%);
-  min-height: 100vh;
+  min-height: 100vh; /* Ensure .App covers at least the viewport height */
+  width: 100vw; /* Cover the full viewport width */
+  overflow: hidden; /* Hide any overflow */
 }
 
 .App-header {
   font-size: calc(10px + 2vmin);
   color: #000;
   text-align: center;
-  padding: 20px 0; /* Add padding for better spacing */
+  padding: 20px 0;
 }
 
 .App-description {
@@ -17,7 +31,7 @@
   color: #000;
   font-size: 1.5rem;
   max-width: 1200px;
-  text-align: justify; /* If you want to justify the description text */
+  text-align: justify; /* Ensuring text is justified */
 }
 
 .article-selection {
@@ -28,26 +42,26 @@
 
 .details-section {
   display: flex;
-  justify-content: space-between; /* Use space-between to evenly space the child elements */
+  justify-content: center; /* Center the child elements */
+  flex-wrap: wrap;
   margin: 20px auto;
   max-width: 900px;
-  flex-wrap: wrap;
 }
 
 .detail-box-container {
-  flex: 1; /* Allow boxes to fill the space */
+  flex: 0 1 auto; /* Adjust this to control the sizing and flexibility */
   text-align: left;
-  margin: 40px; /* Add margin for spacing between boxes */
-  flex-wrap: wrap;
+  margin: 10px; /* Adjust the margin for spacing */
+  width: calc(100% - 20px); /* Adjust width to prevent cut-off, considering the margin */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .detail-box {
-  border: 1px solid #000000;
+  /* border: 1px solid #000000; */
   border-radius: 5px;
   padding: 20px;
-  text-align: left;
-  min-height: 150px; /* Adjust min-height for uniform box size */
-  text-align: justify; /* If you want to justify the description text */
+  text-align: justify; /* Ensure text within is justified */
+  min-height: 150px;
 }
 
 .dropdown-container {
@@ -79,9 +93,106 @@
   }
 
   .detail-box-container {
-    width: 100%; /* Adjust for mobile */
+    width: 100%; /* Full width on mobile */
+    margin: 10px 0; /* Adjusted margin for mobile */
+  }
+
+  .article-selection, .dropdown-container {
+    width: 100%; /* Full width on mobile */
+  }
+
+  .App-description, .detail-box {
+    text-align: justify; /* Enforce text justification on mobile */
+    margin: 0 10px; /* Add horizontal margin for better readability */
+  }
+}
+
+
+/*
+.App {
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(11deg, #0077be 5%, #ffffff 100%);
+  min-height: 100vh;
+}
+
+.App-header {
+  font-size: calc(10px + 2vmin);
+  color: #000;
+  text-align: center;
+  padding: 20px 0; /* Add padding for better spacing 
+}
+
+.App-description {
+  margin: 20px auto;
+  color: #000;
+  font-size: 1.5rem;
+  max-width: 1200px;
+  text-align: justify; /* If you want to justify the description text 
+}
+
+.article-selection {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.details-section {
+  display: flex;
+  justify-content: space-between; /* Use space-between to evenly space the child elements 
+  margin: 20px auto;
+  max-width: 900px;
+  flex-wrap: wrap;
+}
+
+.detail-box-container {
+  flex: 1; /* Allow boxes to fill the space 
+  text-align: left;
+  margin: 40px; /* Add margin for spacing between boxes 
+  flex-wrap: wrap;
+}
+
+.detail-box {
+  border: 1px solid #000000;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: left;
+  min-height: 150px; /* Adjust min-height for uniform box size 
+  text-align: justify; /* If you want to justify the description text 
+}
+
+.dropdown-container {
+  text-align: center;
+  margin: auto;
+}
+
+.dropdown-container label {
+  display: block;
+  margin-bottom: 5px;
+  color: #000;
+}
+
+/* React-Select specific styles 
+.css-1s2u09g-control, .css-1pahdxg-control, .css-yk16xz-control, .css-1pahdxg-control--is-focused {
+  background-color: #f6f2f2;
+  color: black;
+  border-color: #ccc;
+}
+
+.css-26l3qy-menu {
+  color: black;
+}
+
+@media (max-width: 768px) {
+  .details-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .detail-box-container {
+    width: 100%; /* Adjust for mobile 
     margin-top: 10px;
-    margin-bottom: 10px; /* Add margin bottom for spacing */
+    margin-bottom: 10px; /* Add margin bottom for spacing 
   }
 
   .article-selection, .dropdown-container {
@@ -89,17 +200,17 @@
   }
 
   .App-description {
-    text-align: center; /* Center-align the description for smaller screens */
+    text-align: center; /* Center-align the description for smaller screens 
   }
 }
-/* Franklin's Container */
+/* Franklin's Container 
 .fish {
   width: 150px;
   height: 100px;
   animation: swim 3s infinite; 
 }
 
-/* Franklin */
+/* Franklin 
 .fish-body {
   position: relative;
   margin-top: 30px;
@@ -146,7 +257,7 @@
   transform: rotate(-40deg);
 }
 
-/* Bubbles */
+/* Bubbles 
 .bubbles {
   position: absolute;
   bottom: 0;
@@ -198,7 +309,7 @@
   animation: up 3s infinite;
 }
 
-/* Swim Animation */
+/* Swim Animation 
 @keyframes swim {
   0% {
     transform: translateY(-50px) translateX(0) rotate(30deg);
@@ -217,9 +328,10 @@
   }
 }
 
-/* Bubbles Animation */
+/* Bubbles Animation 
 @keyframes up {
   100% {
     transform: translateY(-800px);
   }
 }
+*/
